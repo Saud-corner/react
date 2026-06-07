@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // 1. Tipamos las Props usando el genérico <T>
-interface DataTableProps<T> {
+interface DataTableProps<T extends { id: string | number }> {
     datos: T[];
     // Pedimos un array con las claves (keys) exactas del tipo T
     columnas: (keyof T)[]; 
