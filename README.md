@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+> Proyecto final para la gestión de estudiantes aplicando Arquitectura Limpia y tipado estricto.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Enlaces rápidos
 
-Currently, two official plugins are available:
+| Despliegue | URL |
+| :--- | :--- |
+| **Frontend** | [Ver en Vercel](PON_AQUI_TU_ENLACE_DE_VERCEL) |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Características
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 🏗️ **Arquitectura Limpia**: Separación estricta entre Dominio (`src/domain`) e Infraestructura (`src/infrastructure`).
+* 🛡️ **Tipado Estricto**: Uso de genéricos (`<T>`), utilidades (`Partial<T>`) y comprobaciones exhaustivas (`never`).
+* 📅 **Fechas dinámicas**: Integración con la librería `Luxon` para el manejo de timestamps.
+* ⚛️ **Componentes Genéricos**: Tabla de datos (`DataTable`) reutilizable capaz de inferir las claves del modelo.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tecnologías
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Frontend | Uso |
+| :--- | :--- |
+| React | Librería UI |
+| TypeScript | Lenguaje tipado |
+| Vite | Entorno de desarrollo |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Auxiliares | Uso |
+| :--- | :--- |
+| Luxon | Manejo de fechas |
+| Vercel | Despliegue continuo |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Estructura del proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```text
+react/
+├── docs/
+│   └── arquitectura-final.md  # Documentación de decisiones técnicas
+├── src/
+│   ├── components/            # Componentes visuales (UI)
+│   │   └── DataTable.tsx      # Componente de tabla genérica
+├── domain/                    # Lógica de negocio (Reglas estrictas)
+│   │   └── matricula/         # Entidades e interfaces
+│   ├── infrastructure/        # Conectores externos
+│   │   └── api/               # Simulación de llamadas de red
+│   ├── utils/                 # Herramientas de formateo
+│   │   └── fechas.ts          # Integración con Luxon
+│   └── App.tsx                # Punto de entrada de la aplicación
+└── package.json               # Dependencias del proyecto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Desarrollado para el Grado Superior DAM — Saud — 2026
